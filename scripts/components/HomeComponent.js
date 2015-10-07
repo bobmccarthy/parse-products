@@ -7,6 +7,7 @@ module.exports = React.createClass({
 				<div className="row">
 					<h1>Home</h1>
 				</div>
+				<img className="housePic" src="http://www.animationplayhouse.com/housgost.gif" />
 			</div>
 		);
 	}

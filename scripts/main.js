@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
+var $ = require ('jquery');
 window.$ = require('jquery');
 window.jQuery = $;
 
@@ -13,7 +14,10 @@ var ElectronicsComponent = require('./components/ElectronicsComponent');
 var ClothingComponent = require('./components/ClothingComponent');
 var RegisterComponent = require('./components/RegisterComponent');
 
+Parse.initialize('8juuw6AnGoKX0T3970bmAfqbzKFNPU5YZq1WkQXB', 'fTnW6A0S1zQNe6S5VG5A8bm5kwXYDgLVG4ch1qPO');
+
 var app = document.getElementById('app');
+
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -29,7 +33,7 @@ var Router = Backbone.Router.extend({
 		React.render(<HomeComponent />, app);
 	},
 	add: function() {
-		React.render(<AddProductComponent />, app);
+		React.render(<AddProductComponent router={r}/>, app);
 	},
 	books: function() {
 		React.render(<BooksComponent />, app);
@@ -55,3 +59,5 @@ React.render(
 	<NavigationComponent router={r} />,
 	document.getElementById('nav')
 );
+
+
