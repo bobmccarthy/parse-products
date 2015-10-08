@@ -1,6 +1,9 @@
 .nav-wrapper {
   background-color: #FF9500; }
 
+.button-collapse {
+  margin-right: 1em; }
+
 #fox {
   margin-left: 2.5em; }
 
