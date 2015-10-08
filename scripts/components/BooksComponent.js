@@ -22,7 +22,6 @@ module.exports = React.createClass({
 		);
 	},
 	render: function() {
-		var that=this;
 		var productElements = this.state.products.map(function(product) {
 			return (
 				<div className="Eproduct">

@@ -32705,7 +32705,6 @@ module.exports = React.createClass({
 		});
 	},
 	render: function render() {
-		var that = this;
 		var productElements = this.state.products.map(function (product) {
 			return React.createElement(
 				'div',
@@ -32854,6 +32853,7 @@ module.exports = React.createClass({
 
 var React = require('react');
 var ProductModel = require('../models/ProductModel');
+var BuyComponent = require('./BuyComponent');
 var query = new Parse.Query(ProductModel);
 
 module.exports = React.createClass({
@@ -32904,11 +32904,7 @@ module.exports = React.createClass({
 					'Only $',
 					product.get('price'),
 					' if you buy now ',
-					React.createElement(
-						'button',
-						{ className: 'buy' },
-						'Buy'
-					)
+					React.createElement(BuyComponent, null)
 				)
 			);
 		});
@@ -32991,11 +32987,12 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":170,"react":159}],164:[function(require,module,exports){
+},{"../models/ProductModel":170,"./BuyComponent":162,"react":159}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var ProductModel = require('../models/ProductModel');
+var BuyComponent = require('./BuyComponent');
 var query = new Parse.Query(ProductModel);
 
 module.exports = React.createClass({
@@ -33045,11 +33042,7 @@ module.exports = React.createClass({
 					'Only $',
 					product.get('price'),
 					' if you buy now ',
-					React.createElement(
-						'button',
-						{ className: 'buy' },
-						'Buy'
-					)
+					React.createElement(BuyComponent, null)
 				)
 			);
 		});
@@ -33132,7 +33125,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":170,"react":159}],165:[function(require,module,exports){
+},{"../models/ProductModel":170,"./BuyComponent":162,"react":159}],165:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
