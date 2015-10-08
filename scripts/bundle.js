@@ -32679,11 +32679,12 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":169,"react":159}],161:[function(require,module,exports){
+},{"../models/ProductModel":170,"react":159}],161:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var ProductModel = require('../models/ProductModel');
+var BuyComponent = require('./BuyComponent');
 var query = new Parse.Query(ProductModel);
 
 module.exports = React.createClass({
@@ -32704,7 +32705,7 @@ module.exports = React.createClass({
 		});
 	},
 	render: function render() {
-
+		var that = this;
 		var productElements = this.state.products.map(function (product) {
 			return React.createElement(
 				'div',
@@ -32734,11 +32735,7 @@ module.exports = React.createClass({
 					'Only $',
 					product.get('price'),
 					' if you buy now ',
-					React.createElement(
-						'button',
-						{ id: 'buyNow', className: 'buy' },
-						'Buy'
-					)
+					React.createElement(BuyComponent, null)
 				)
 			);
 		});
@@ -32821,7 +32818,38 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":169,"react":159}],162:[function(require,module,exports){
+},{"../models/ProductModel":170,"./BuyComponent":162,"react":159}],162:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	getInitialState: function getInitialState() {
+		return {
+			products: React.createElement(
+				"button",
+				{ onClick: this.buy, id: "buyNow", className: "buy" },
+				"Buy"
+			)
+		};
+	},
+	render: function render() {
+		return this.state.products;
+	},
+	buy: function buy() {
+		this.setState({
+			products: React.createElement(
+				"button",
+				{ onClick: this.buy, id: "buyNow", className: "buy" },
+				"Sold Out"
+			)
+		});
+	}
+});
+
+},{"react":159}],163:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32963,7 +32991,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":169,"react":159}],163:[function(require,module,exports){
+},{"../models/ProductModel":170,"react":159}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33104,7 +33132,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":169,"react":159}],164:[function(require,module,exports){
+},{"../models/ProductModel":170,"react":159}],165:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33130,7 +33158,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],165:[function(require,module,exports){
+},{"react":159}],166:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33224,7 +33252,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],166:[function(require,module,exports){
+},{"react":159}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33360,7 +33388,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"backbone":1,"react":159}],167:[function(require,module,exports){
+},{"backbone":1,"react":159}],168:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33458,7 +33486,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],168:[function(require,module,exports){
+},{"react":159}],169:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
@@ -33517,14 +33545,14 @@ Backbone.history.start();
 
 React.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/AddProductComponent":160,"./components/BooksComponent":161,"./components/ClothingComponent":162,"./components/ElectronicsComponent":163,"./components/HomeComponent":164,"./components/LoginComponent":165,"./components/NavigationComponent":166,"./components/RegisterComponent":167,"backbone":1,"jquery":4,"react":159}],169:[function(require,module,exports){
+},{"./components/AddProductComponent":160,"./components/BooksComponent":161,"./components/ClothingComponent":163,"./components/ElectronicsComponent":164,"./components/HomeComponent":165,"./components/LoginComponent":166,"./components/NavigationComponent":167,"./components/RegisterComponent":168,"backbone":1,"jquery":4,"react":159}],170:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
 	className: 'Products'
 });
 
-},{}]},{},[168])
+},{}]},{},[169])
 
 
 //# sourceMappingURL=bundle.js.map

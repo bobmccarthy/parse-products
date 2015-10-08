@@ -1,5 +1,6 @@
 var React = require('react');
 var ProductModel = require('../models/ProductModel');
+var BuyComponent = require('./BuyComponent');
 var query = new Parse.Query(ProductModel);
 
 module.exports = React.createClass({
@@ -21,14 +22,14 @@ module.exports = React.createClass({
 		);
 	},
 	render: function() {
-		
+		var that=this;
 		var productElements = this.state.products.map(function(product) {
 			return (
 				<div className="Eproduct">
 				<div><img src={product.get('picUrl')} /></div>
 					<div><strong>{product.get('productName')}</strong></div>
 					<div>{product.get('description')}</div>
-					<div>Only ${product.get('price')} if you buy now <button id="buyNow" className="buy">Buy</button></div>
+					<div>Only ${product.get('price')} if you buy now <BuyComponent /></div>
 					
 				</div>
 				);
