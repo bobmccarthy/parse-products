@@ -28,7 +28,7 @@ module.exports = React.createClass({
 				<div><img src={product.get('picUrl')} /></div>
 					<div><strong>{product.get('productName')}</strong></div>
 					<div>{product.get('description')}</div>
-					<div>Only ${product.get('price')} if you buy now <button className="buy">Buy</button></div>
+					<div>Only ${product.get('price')} if you buy now <button id="buyNow" className="buy">Buy</button></div>
 					
 				</div>
 				);

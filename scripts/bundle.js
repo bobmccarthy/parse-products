@@ -32736,7 +32736,7 @@ module.exports = React.createClass({
 					' if you buy now ',
 					React.createElement(
 						'button',
-						{ className: 'buy' },
+						{ id: 'buyNow', className: 'buy' },
 						'Buy'
 					)
 				)
@@ -33240,6 +33240,11 @@ module.exports = React.createClass({
 			_this.forceUpdate();
 		});
 	},
+	componentDidMount: function componentDidMount() {
+		$(document).ready(function () {
+			$('.button-collapse').sideNav({ edge: 'right', closeOnClick: true });
+		});
+	},
 	render: function render() {
 		var currentPage = Backbone.history.getFragment();
 		console.log(currentPage === 'category/books');
@@ -33328,8 +33333,22 @@ module.exports = React.createClass({
 				'Product Fox'
 			),
 			React.createElement(
+				'a',
+				{ href: '#', 'data-activates': 'mobile-demo', className: 'button-collapse right' },
+				React.createElement(
+					'i',
+					{ className: 'material-icons' },
+					'menu'
+				)
+			),
+			React.createElement(
 				'ul',
-				{ className: 'right' },
+				{ className: 'right hide-on-med-and-down' },
+				links
+			),
+			React.createElement(
+				'ul',
+				{ className: 'side-nav', id: 'mobile-demo' },
 				links
 			)
 		);

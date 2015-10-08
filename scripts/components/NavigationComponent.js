@@ -7,6 +7,11 @@ module.exports = React.createClass({
 			this.forceUpdate();
 		});
 	},
+	componentDidMount: function(){
+		$( document ).ready(function(){
+			$('.button-collapse').sideNav({edge: 'right',closeOnClick: true})
+		})
+	},
 	render: function() {
 		var currentPage = Backbone.history.getFragment();
 		console.log(currentPage === 'category/books');
@@ -32,7 +37,11 @@ module.exports = React.createClass({
 			<div className="nav-wrapper">
 				<img className="logo left" src="https://cdn2.scratch.mit.edu/get_image/user/4501985_60x60.png?v=1418482288.0"/>
 				<a href="#" className="brand-logo left" id="fox">Product Fox</a>
-				<ul className="right">
+				<a href="#" data-activates="mobile-demo" className="button-collapse right"><i className="material-icons">menu</i></a>
+				<ul className="right hide-on-med-and-down">
+					{links}
+				</ul>
+				<ul className="side-nav" id="mobile-demo">
 					{links}
 				</ul>
 			</div>
